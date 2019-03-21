@@ -4,4 +4,7 @@
   <p>Category: <%= product.category.name %>
   <p>Price: <%= product.price %>
   <p>Description: <%= product.description %>
+  <% if product.image.present? %>
+    <p><%= image_tag product.image %>
+  <% end %>
 <% end %>
