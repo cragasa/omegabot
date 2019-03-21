@@ -5,6 +5,6 @@
   <p>Price: <%= product.price %>
   <p>Description: <%= product.description %>
   <% if product.image.present? %>
-    <p><%= image_tag product.image %>
+    <p><%= image_tag  product.image.thumbnail.url %></p>
   <% end %>
 <% end %>
