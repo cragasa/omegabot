@@ -1,10 +1,15 @@
+<%# <ul>
+  <li><%= link_to , Home %></li>
+</ul> %>
 <h1>Products</h1>
+<%= paginate @products %>
 <% @products.each do |product| %>
   <h3><%= product.name %></h3>
   <p>Category: <%= product.category.name %>
-  <p>Price: <%= product.price %>
+  <p>Price: <%= number_to_currency product.price %>
   <p>Description: <%= product.description %>
   <% if product.image.present? %>
     <p><%= image_tag  product.image.thumbnail.url %></p>
   <% end %>
 <% end %>
+<%= paginate @products %>
