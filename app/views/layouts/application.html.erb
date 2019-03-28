@@ -15,12 +15,25 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Categories", '/categories' %></li>
       </ul>
+      <p class="navbar-text pull-right">
+      <% if customer_signed_in? %>
+        Logged in as <strong><%= current_customer.fullname %></strong>.
+        <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_customer_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      </p>
+
       <%= form_tag(search_results_path, method: "get") do %>
       <%= label_tag(:q, "") %>
       <%= text_field_tag(:q, nil, required: 'required') %>
       <%= select_tag(:type, options_from_collection_for_select(Category.all, 'id', 'name'), { :include_blank => 'All'})%>
       <%= submit_tag("Search") %>
-    <% end %>
+      <% end %>
+
+
 
     <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
