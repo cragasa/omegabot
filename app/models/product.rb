@@ -2,7 +2,7 @@
 
 class Product < ApplicationRecord
   belongs_to :category
-  validates :name, :price, :description, presence: true
+  validates :name, :price, :description, :category, presence: true
   validates :price, numericality: true
 
   paginates_per 5

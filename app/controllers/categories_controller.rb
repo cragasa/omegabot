@@ -5,5 +5,7 @@ class CategoriesController < ApplicationController
     @categories = Category.order(:name)
   end
 
-  def show; end
+  def show
+    @category = Category.find(params[:id])
+  end
 end

@@ -1,2 +1,7 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h3><%= @product.name %></h3>
+<p>Category: <%= link_to @product.category.name, @product.category %>
+  <p>Price: <%= number_to_currency @product.price %>
+  <p>Description: <%= @product.description %>
+  <% if @product.image.present? %>
+    <p><%= image_tag  @product.image.medium.url %></p>
+  <% end %>
