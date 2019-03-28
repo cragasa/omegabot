@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'search/results'
+  get 'search_results', to: 'search#results', as: 'search_results'
   root to: 'products#index'
   resources :products, only: %i[index show]
   resources :categories, only: %i[index show]

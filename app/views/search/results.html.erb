@@ -1,2 +1,6 @@
-<h1>Search#results</h1>
-<p>Find me in app/views/search/results.html.erb</p>
+<h1>Search results</h1>
+<h2>Your query for "<%= @query %>" returned <%= pluralize(@results_count, 'bot')%>.</h2>
+<%= paginate @search_results %>
+<% @search_results.each do |product| %>
+ <%= render partial: 'products/product', object: product %>
+ <% end %>

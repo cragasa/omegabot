@@ -15,6 +15,12 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Categories", '/categories' %></li>
       </ul>
+      <%= form_tag(search_results_path, method: "get") do %>
+      <%= label_tag(:q, "") %>
+      <%= text_field_tag(:q, nil, required: 'required') %>
+      <%= select_tag(:type, options_from_collection_for_select(Category.all, 'id', 'name'), { :include_blank => 'All'})%>
+      <%= submit_tag("Search") %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
