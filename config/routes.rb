@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :customers
   get 'search_results', to: 'search#results', as: 'search_results'
   root to: 'products#index'
   resources :products, only: %i[index show]
