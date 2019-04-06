@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<%= render(@cart.line_items) %>
+<%= button_to 'Empty Cart', @cart,method: :delete, data: {confirm: "Are you sure?" }%>
+<p>Total: <%= number_to_currency(@cart.total_price) %></p>
