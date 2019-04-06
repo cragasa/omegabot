@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :pages
   resources :line_items
   resources :carts
+
+  get 'static/:permalink', to: 'pages#static', as: 'static'
+
   devise_for :customers
   get 'search_results', to: 'search#results', as: 'search_results'
   root to: 'products#index'
