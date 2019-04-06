@@ -15,6 +15,13 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Categories", '/categories' %></li>
       </ul>
+
+      <% if cart_has_items %>
+        <%= link_to cart_path(@cart) do %>
+        <span>Cart <%= cart_count_over_one %></span>
+        <% end %>
+      <% end %>
+
       <p class="navbar-text pull-right">
       <% if customer_signed_in? %>
         Logged in as <strong><%= current_customer.fullname %></strong>.
