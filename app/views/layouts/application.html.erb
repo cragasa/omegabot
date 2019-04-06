@@ -28,7 +28,7 @@
 
       <%= form_tag(search_results_path, method: "get") do %>
       <%= label_tag(:q, "") %>
-      <%= text_field_tag(:q, nil, required: 'required') %>
+      <%= text_field_tag(:q) %>
       <%= select_tag(:type, options_from_collection_for_select(Category.all, 'id', 'name'), { :include_blank => 'All'})%>
       <%= submit_tag("Search") %>
       <% end %>
