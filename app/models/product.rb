@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   validates :name, :price, :description, :category, presence: true
   validates :price, numericality: true
 
-  paginates_per 5
+  paginates_per 6
 
   mount_uploader :image, ImageUploader
 

@@ -1,3 +1,4 @@
+<div class="container">
 <h3><%= @product.name %></h3>
 <p>Category: <%= link_to @product.category.name, @product.category %></p>
   <p>Price: <%= number_to_currency @product.price %></p>
@@ -6,3 +7,4 @@
     <p><%= image_tag  @product.image.medium.url %></p>
   <% end %>
   <%= button_to 'Add to cart', line_items_path(product_id: @product)%>
+  </div>

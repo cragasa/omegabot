@@ -1,6 +1,6 @@
 <p>Qty: <%= line_item.quantity %></p>
 <p>Name: <%= line_item.product.name %></p>
-<% if line_item.product.image.present? %></p>
+<% if line_item.product.image.present? %>
     <p><%= image_tag  line_item.product.image.thumbnail.url %></p>
 <% end %>
 <p>Description: <%= truncate(line_item.product.description, length: 100 )%></p>

@@ -1,6 +1,6 @@
 <h3><%= link_to product.name, product %></h3>
-<p>Category: <%= link_to product.category.name, product.category %>
-<p>Price: <%= number_to_currency product.price %>
+<p>Category: <%= link_to product.category.name, product.category %></p>
+<p>Price: <%= number_to_currency product.price %></p>
 <% if product.image.present? %>
   <p><%= image_tag  product.image.thumbnail.url %></p>
 <% end %>
