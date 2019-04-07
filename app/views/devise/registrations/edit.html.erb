@@ -6,43 +6,43 @@
 
   <div class="input-field">
   <i class="material-icons prefix">account_circle</i>
-    <%= f.label :fullname %>
+    <%= f.label :fullname %><br />
     <%= f.text_field :fullname, autofocus: true, autocomplete: "fullname" %>
   </div>
 
   <div class="input-field">
   <i class="material-icons prefix">phone</i>
-    <%= f.label :phone %>
+    <%= f.label :phone %><br />
     <%= f.number_field :phone, autocomplete: "phone" %>
   </div>
 
   <div class="input-field">
   <i class="material-icons prefix">store</i>
-    <%= f.label :address %>
+    <%= f.label :address %><br />
     <%= f.text_field :address, autocomplete: "address" %>
   </div>
 
   <div class="input-field">
   <i class="material-icons prefix">photo</i>
-    <%= f.label :provinceid %>
+    <%= f.label :provinceid %><br />
     <%= f.select(:province_id, options_from_collection_for_select(Province.order(:name), 'id', 'name', :selected => resource.province_id))%>
   </div>
 
   <div class="input-field">
   <i class="material-icons prefix">photo_album</i>
-    <%= f.label :city %>
+    <%= f.label :city %><br />
     <%= f.text_field :city, autocomplete: "city" %>
   </div>
 
   <div class="input-field">
-  <i class="material-icons prefix">place</i>
-    <%= f.label :postalcode %>
+  <i class="material-icons prefix">photo_library</i>
+    <%= f.label :postalcode %><br />
     <%= f.text_field :postalcode, autocomplete: "postalcode" %>
   </div>
 
   <div class="input-field">
   <i class="material-icons prefix">mail</i>
-    <%= f.label :email %>
+    <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
@@ -62,13 +62,13 @@
 
   <div class="input-field">
   <i class="material-icons prefix">security</i>
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="fiinput-fieldeld">
+  <div class="input-field">
   <i class="material-icons prefix">security</i>
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+    <%= f.label :current_password %><i>(we need your current password to confirm your changes)</i>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
