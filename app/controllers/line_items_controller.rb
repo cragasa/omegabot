@@ -33,15 +33,11 @@ class LineItemsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @line_item }
-      else
-        format.html { render :edit }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
-    end
+    @cart = Cart.find(session[:cart_id])
+    @line_item = @cart.line_items.find(params[:id])
+    @line_item.update_attributes(line_item_params)
+    @line_items = @cart.line_items
+    redirect_back(fallback_location: '#')
   end
 
   def destroy
@@ -60,6 +56,6 @@ class LineItemsController < ApplicationController
   end
 
   def line_item_params
-    params.require(:line_item).permit(:product_id)
+    params.require(:line_item).permit(:quantity, :product_id)
   end
 end

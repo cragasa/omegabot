@@ -1,8 +1,13 @@
-<p>Qty: <%= line_item.quantity %></p>
-<p>Name: <%= line_item.product.name %></p>
-<% if line_item.product.image.present? %>
-    <p><%= image_tag  line_item.product.image.thumbnail.url %></p>
+<%= form_for line_item, remote: true do |f| %>
+    <p>Qty: <%= line_item.quantity %></p>
+    <%= f.number_field :quantity, value: line_item.quantity.to_i, class: "form-control"%>
+    <%= f.hidden_field :product_id, value: line_item.product.id %>
+    <p>Name: <%= line_item.product.name %></p>
+    <% if line_item.product.image.present? %>
+        <p><%= image_tag  line_item.product.image.thumbnail.url %></p>
+    <% end %>
+    <p>Description: <%= truncate(line_item.product.description, length: 100 )%></p>
+    <p>Price: <%= number_to_currency line_item.product.price %>
+    <%= f.submit "Update Quantity", class: "btn btn-primary" %>
+    <%= link_to 'Remove Item', line_item, method: :delete, data: {confirm: "Are you sure?"}%>
 <% end %>
-<p>Description: <%= truncate(line_item.product.description, length: 100 )%></p>
-<p>Price: <%= number_to_currency line_item.product.price %>
-<%= link_to 'Remove Item', line_item, method: :delete, data: {confirm: "Are you sure?"}%>

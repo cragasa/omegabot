@@ -16,19 +16,19 @@
         <a href='/products' class="brand-logo">Omegabot</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if cart_has_items %>
-          <%= link_to cart_path(@cart) do %>
-          <li><i class="material-icons">shopping_cart</i></li>
-          <li><%= cart_count_over_one %></li>
+          <li><%= link_to cart_path(@cart) do %>
+          <i class="material-icons">shopping_cart</i>
           <% end %>
+          </li>
         <% end %>
-
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Categories", '/categories' %></li>
+          <li><%= link_to "About Us", '/static/about-us' %></li>
+          <li><%= link_to "Contact Us", '/static/contact-us' %></li>
         <% if customer_signed_in? %>
           <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> </li>
           <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link' %></li>
           <li><%= current_customer.email %></li>
-          <li>cvbxvbfb</li>
         <% else %>
           <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link' %></li>
           <li><%= link_to "Login", new_customer_session_path, :class => 'navbar-link' %></li>
