@@ -14,6 +14,7 @@
     <nav>
       <div class="nav-wrapper">
         <a href='/products' class="brand-logo">Omegabot</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if cart_has_items %>
           <li><%= link_to cart_path(@cart) do %>
@@ -28,7 +29,7 @@
         <% if customer_signed_in? %>
           <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> </li>
           <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link' %></li>
-          <li><%= current_customer.email %></li>
+          <li><a><%= current_customer.email %></a></li>
         <% else %>
           <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link' %></li>
           <li><%= link_to "Login", new_customer_session_path, :class => 'navbar-link' %></li>
@@ -36,6 +37,27 @@
        </ul>
       </div>
     </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+    <% if cart_has_items %>
+          <li><%= link_to cart_path(@cart) do %>
+          <i class="material-icons">shopping_cart</i>
+          <% end %>
+          </li>
+        <% end %>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Categories", '/categories' %></li>
+          <li><%= link_to "About Us", '/static/about-us' %></li>
+          <li><%= link_to "Contact Us", '/static/contact-us' %></li>
+        <% if customer_signed_in? %>
+          <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> </li>
+          <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link' %></li>
+          <li><a><%= current_customer.fullname %></a></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link' %></li>
+          <li><%= link_to "Login", new_customer_session_path, :class => 'navbar-link' %></li>
+        <% end %>
+    </ul>
 
       <%= form_tag(search_results_path, method: "get") do %>
       <%= label_tag(:q, "") %>
@@ -52,7 +74,6 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-
     <%= yield %>
   </body>
 </html>
