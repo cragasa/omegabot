@@ -52,7 +52,7 @@
         <% if customer_signed_in? %>
           <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> </li>
           <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link' %></li>
-          <li><a><%= current_customer.fullname %></a></li>
+          <li><%= current_customer.fullname %></li>
         <% else %>
           <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link' %></li>
           <li><%= link_to "Login", new_customer_session_path, :class => 'navbar-link' %></li>
